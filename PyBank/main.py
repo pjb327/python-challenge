@@ -3,6 +3,9 @@ import os
 #what is os
 
 PyBank_csv = os.path.join("Resources/budget_data.csv")
+output ="./Analysis/output.txt"
+
+
 
 
 # The total number of months included in the dataset
@@ -36,6 +39,12 @@ with open(PyBank_csv, newline = "") as csv_file:
     print(f"Decreased profits: {dec_date} {dec_profit}")
     print(f"Total profits: {tot_profit}")
     print(f"Total months: {count}")
+    with open(output, 'w') as text:
+        text.write(f"Average change: {round(avg_change, 2)}\n")
+        text.write(f"Increased profits: {max_date} {inc_profit}\n")
+        text.write(f"Decreased profits: {dec_date} {dec_profit}\n")
+        text.write(f"Total profits: {tot_profit}\n")
+        text.write(f"Total months: {count}\n")
 
 
 
